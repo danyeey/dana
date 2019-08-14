@@ -1,0 +1,55 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+header{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    margin: 0;
+    position: fixed;
+    z-index: 10;
+}
+
+.logo{
+    float: left;
+    margin-left: 50px;
+    margin-top: 15px;
+}
+
+nav{
+    margin: 25px;
+    float: right;
+    list-style: none;
+}
+
+nav ul li{
+    margin:30px;
+    display: inline;
+    color: #fff;
+    
+}
+
+.sign-up{
+    color: black;
+    background-color:rgba(255, 131, 15, 0.76);
+    /*width: 30px;
+    height: 30px;*/
+    padding: 10px 25px; 
+    border-radius: 9999px; 
+}
+
+nav ul a:link, a:visited{
+    color: #fff;
+    text-decoration: none;
+}
