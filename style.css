@@ -1,55 +1,130 @@
-@charset "utf-8";
-@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
-
-*{
-    margin: 0;
-    padding: 0;
+body{
+    margin: 0px;
+    /* background-color: black; */
 }
 
-#container{
-    width: 100%;
-    margin: 0 auto;
+a:visited, a:link{
+    color: inherit;
+    text-decoration: none;
 }
 
-header{
-    width: 100%;
-    height: 70px;
-    background-color: black;
-    margin: 0;
+#navigation{
+    height: 65px;
+    width: 100vw;
     position: fixed;
-    z-index: 10;
+    top: 0px;
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo{
-    float: left;
-    margin-left: 50px;
-    margin-top: 15px;
+    width: 200px;
+    /* height: 100%; */
+    position: relative;
+}
+
+.logo img{
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 
 nav{
-    margin: 25px;
-    float: right;
-    list-style: none;
-}
-
-nav ul li{
-    margin:30px;
-    display: inline;
-    color: #fff;
     
 }
 
-.sign-up{
-    color: black;
-    background-color:rgba(255, 131, 15, 0.76);
-    /*width: 30px;
-    height: 30px;*/
-    padding: 10px 25px; 
-    border-radius: 9999px; 
+nav > ul{
+    display: flex;
+    list-style: none;
+    height: 100%;
+    margin: 0px;
 }
 
-nav ul a:link, a:visited{
-    color: #fff;
-    text-decoration: none;
+nav > ul li{
+    color: white;
+    padding: 0 6px;
+    width: 75px;
+    position: relative;
 }
+
+nav > ul li a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+nav > ul li.sign-up{
+    width: 150px;
+    color: black;
+}
+nav > ul li.sign-up a{
+    background-color: orange;
+    padding: 10 15px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.container{
+    margin-top: 60px;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.front-image{
+
+}
+
+.front-image img{
+    width: 100%;
+}
+
+.article-container{
+    display: flex;
+    justify-content: stretch;
+    margin: auto;
+    width: 1200px;
+    min-height: 200px;
+    background-color: white;
+    padding: 10px;
+}
+
+.article-container > div{
+    height: 100vh;
+    margin: 10px;
+    /* background-color: rgba(0,0,0,0.2); */
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.article-container > div.info{
+    width: 250px;
+}
+
+.article-container > div.posts{
+    width: 620px;
+}
+
+.article-container > div.tiers{
+    width: 250px;
+}
+
+
+
