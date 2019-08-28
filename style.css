@@ -1,55 +1,502 @@
-@charset "utf-8";
-@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
+/*#region global*/
 
-*{
-    margin: 0;
-    padding: 0;
+body{
+    margin:0;   
 }
 
-#container{
-    width: 100%;
-    margin: 0 auto;
+h1,h2,h3{
+    font-family: 'Days One', sans-serif;
+    font-weight: 400;
 }
 
-header{
-    width: 100%;
-    height: 70px;
+a:link, a:visited{
+    color: inherit;
+    /* 속성값을 물려받음 */
+    text-decoration: none;
+}
+
+/*#endregion */
+
+/*#region inline style*/
+
+.txt-lg{
+    font-size: 18px;
+}
+
+.txt-nm{
+    font-size: 16px;
+}
+
+.txt-sm{
+    font-size: 14px;
+}
+
+
+.txt-100{
+    color: rgba(0,0,0,1);
+}
+
+.txt-70{
+    color: rgba(0,0,0,0.7);
+}
+
+.txt-40{
+    color: rgba(0,0,0,0.4);
+}
+
+.txt-color-primary{
+    color: #E85B46;
+}
+
+.txt-color-primary-50{
+    color: #FAEBE8;
+}
+
+.txt-bold{
+    font-weight: 700;
+}
+
+.txt-light{
+    font-weight: 300;
+}
+
+/*#endregion*/
+
+/*#region component*/
+
+    .arrow-btns{
+        border:  1px solid rgb(233, 233, 233);
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        min-width: 20px;
+        min-height: 20px;
+        display: flex;
+    }
+
+    .arrow-btns > div{
+        width: 28px;
+        height: 28px;
+        border-right: 1px solid rgb(233, 233, 233);
+        position: relative;
+    }
+
+    .arrow-btns > div:last-child{
+        border-right: none;
+    }
+
+    .arrow-btn{
+        position: absolute;
+        border: 2px solid rgb(211, 211, 211);
+        width: 6px;
+        height: 6px;
+        border-right: none;
+        border-bottom: none;
+        top: 50%;
+        left: 50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        -webkit-transform:translate(-50%,-50%) rotate(45deg);
+        -moz-transform:translate(-50%,-50%) rotate(45deg);
+        -ms-transform:translate(-50%,-50%) rotate(45deg);
+        -o-transform:translate(-50%,-50%) rotate(45deg);
+    }
+
+    .left-btn .arrow-btn{
+    transform: translate(-40%,-50%) rotate(-45deg);
+    -webkit-transform: translate(-40%,-50%) rotate(-45deg);
+    -moz-transform: translate(-40%,-50%) rotate(-45deg);
+    -ms-transform: translate(-40%,-50%) rotate(-45deg);
+    -o-transform: translate(-40%,-50%) rotate(-45deg);
+    }
+
+    .right-btn .arrow-btn{
+    transform: translate(-60%,-50%) rotate(135deg);
+    -webkit-transform: translate(-60%,-50%) rotate(135deg);
+    -moz-transform: translate(-60%,-50%) rotate(135deg);
+    -ms-transform: translate(-60%,-50%) rotate(135deg);
+    -o-transform: translate(-60%,-50%) rotate(135deg);
+    }
+
+    .arrow-btn.active{
+    border-color: rgb(103, 103, 103);
+    }
+
+    .progress-bar{
+        height: 8px;
+        width: 100%;
+        background-color: rgb(232, 232, 232);
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+    }
+
+    .progress-bar .gage{
+        height: 100%;
+        width: 80%;
+        background-color: rgb(242, 46, 46);
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+    }
+
+    .side-box{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(233, 233, 233);
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+}
+
+
+/*#endregion*/
+
+/*#region nav*/
+
+
+#navigation{
+    height: 60px;
+    width: 100vw;
     background-color: black;
-    margin: 0;
-    position: fixed;
-    z-index: 10;
+    position: fixed; 
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    /*fixed 붙어있는것
+    top은 붙어있는 기준*/
 }
 
 .logo{
-    float: left;
-    margin-left: 50px;
-    margin-top: 15px;
+    width: 200px;
+    height: 100%;
+    position: relative;
+    /* relative를 쓰고 아래에 absolute를 쓰면 속성을 이어받음 */
+}
+
+.logo img{
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 
 nav{
-    margin: 25px;
-    float: right;
+
+}
+
+nav > ul{ 
+    /* nav 바로 밑에 있는 ul - 나중에 flexible하게 추가 될 수도 있으니 명확하게 혹은 클래스로 설정 가능 */
+    display: flex;
     list-style: none;
+    height: 100%;
+    margin: 0px;
 }
 
-nav ul li{
-    margin:30px;
-    display: inline;
-    color: #fff;
-    
+nav>ul li{
+    color: white;
+    padding: 0 10px;
+    width: 80px;
+    position: relative;
 }
 
-.sign-up{
+nav> ul li a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+
+nav > ul li.sign-up{
     color: black;
-    background-color:rgba(255, 131, 15, 0.76);
-    /*width: 30px;
-    height: 30px;*/
-    padding: 10px 25px; 
-    border-radius: 9999px; 
+    width: 140px;
 }
 
-nav ul a:link, a:visited{
-    color: #fff;
-    text-decoration: none;
+nav > ul li.sign-up a{
+    background-color: coral;
+    padding: 10 15px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
+
+
+/*#endregion */
+
+/*#region container*/
+.container{
+    margin-top: 60px;
+    width: 100vw;
+    min-height: 100vh; 
+    /* min-height 최소높이 
+    vh=view height
+    vw=view width */
+
+    }
+
+    .front-image{
+
+    }
+
+    .front-image img{
+        width: 100%;
+    }
+
+    .article-container{
+        display: flex;
+
+        margin: auto;
+        /* 양쪽 마진을 알아서 가로정렬만 중앙으로 만들어준다 */
+        width: 1200px; 
+        /* 너비를 1200으로 박아놓는다 */
+
+        min-height: 200px;
+        background-color: white;
+        padding: 10px;
+        /* 큰거에서 패딩을 주고 내용물에서 마진을 주면 잘맞는다 */
+    }
+
+    .article-container>div{
+    height: 100vh;
+    min-width: 200px;
+    margin: 10px;
+    /*이놈에서마진을주면맞는다*/border:rgba(0,0,0,0.2);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+/*#endregion */
+
+
+/*#region info*/
+    .article-container>div.info{
+        border: none;
+        border-radius:0px;
+        width: 250px;
+        overflow: hidden;
+        -webkit-border-radius:0px;
+        -moz-border-radius:0px;
+        -ms-border-radius:0px;
+        -o-border-radius:0px;
+}
+
+    .info > div{
+        margin-bottom: 20px;
+    }
+
+    .info-section-1{
+        padding: 30px 0;
+        display: flex;
+        flex-direction:column;
+        /*row*//*justify-content:;
+        center쌓는방향을중앙으로*/align-items: center;
+        text-align: center;
+        /*align-items/:;
+        정렬의방향을중앙으로*/:;
+        -webkit-border-radius:8px;
+        -moz-border-radius:8px;
+        -ms-border-radius:8px;
+        -o-border-radius:8px;
+}
+
+    .info-profile{
+        height: 80px;
+        width: 80px;
+        overflow: hidden;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        -ms-border-radius: 40px;
+        -o-border-radius: 40px;
+}
+    .info-section-1 h1,.info-section-1 p{
+    margin-bottom: 0px;
+    }
+
+    .info-profile img{
+        width: 100%;
+
+    }
+
+    .info-intro h1{
+        font-size:25px;
+    }
+
+    .info-intro p{
+        font-size: 18px;
+        color: grey;
+    }
+
+    .info-follower h1{
+        font-size: 25px;
+    }
+
+    .info-follower p{
+        font-size: 15px;
+        color: grey;
+        margin-top: -1px;
+    }
+
+    .info-social{
+        margin-top: 10px;
+        display: flex;
+    }
+
+    .info-social > div{
+        width: 40px;
+        height: 40px;
+        border-radius:20px;
+        background-color: rgb(233, 233, 233);
+        margin: 5px;
+        -webkit-border-radius:20px;
+        -moz-border-radius:20px;
+        -ms-border-radius:20px;
+        -o-border-radius:20px;
+        position: relative;
+        cursor: pointer;
+        /* 커서를 손가락으로 */
+}
+    .info-social > div img{
+        height: 27px;
+        filter: opacity(10%)            ;
+        -webkit-filter: opacity(10%)            ;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+}
+
+    .info-social > div:hover{
+        background-color: rgb(255, 223, 194);
+    }
+
+    .info-btn{
+        color: orange;
+        display: flex;
+        width: 100%;
+        height: 50px;
+}
+
+    .info-btn>div{
+        position: relative;
+        margin: 5px;
+        width: 50%;
+        background-color: rgb(255, 223, 194);
+        border-radius:30px;
+        -webkit-border-radius:30px;
+        -moz-border-radius:30px;
+        -ms-border-radius:30px;
+        -o-border-radius:30px;
+    }
+
+    .info-btn>div a{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+
+    }
+
+
+    .side-box > div{
+        border-bottom: 1px solid rgb(233, 233, 233);   
+        padding: 15px;
+    }
+
+    .side-box > div:last-child{
+        border-bottom: none;
+    }
+
+    .side-box .section1{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .side-box .section1 > *, 
+    .side-box .section1 > div > *{
+        margin: 0 6px;
+    } 
+
+    .side-box .section1 > div{
+        display: flex;
+        align-items: center;
+    }
+/*#endregion */
+
+
+/*#region post*/
+    .article-container>div.posts{
+        background-color:rgb(235, 200, 111);
+        width: 620px;
+    }
+/*#endregion */
+
+
+/*#region tier*/
+
+    .tiers .side-box{
+        position: relative;
+    }
+    .become-btn{
+        text-align: center;
+        color: aliceblue;
+    }
+    
+    .title{
+        margin: 0;
+        padding: 0;
+    }
+
+    .article-container>div.tiers{
+        width: 250px;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+    } 
+    .become-btn{
+        width:80%;
+        height: 20px;
+        background-color: #E85B46;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        -ms-border-radius: 40px;
+        -o-border-radius: 40px;
+    }
+
+    .tiers-section-1{
+        margin: 0;
+        padding: 0;
+    }
+/*#endregion */
